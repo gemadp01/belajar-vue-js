@@ -31,6 +31,7 @@
       </tbody>
     </table>
     <p>Thank you for your order.</p>
+    <router-link class="btn btn-sm btn-outline-info text-dark" to="/">Back to Shop</router-link>
   </div>
 </template>
 

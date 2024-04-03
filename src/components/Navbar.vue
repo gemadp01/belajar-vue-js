@@ -22,6 +22,7 @@
               <!-- <b>{{ item.product.price * item.qty | currencyFormat(item.product.price) }}</b> -->
             </div>
           </div>
+          <router-link class="btn btn-sm btn-outline-info text-dark float-right mr-2" to="/checkout">Checkout</router-link>
         </div>
       </div>
     </div>
