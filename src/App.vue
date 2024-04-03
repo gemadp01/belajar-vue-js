@@ -1,24 +1,26 @@
 <template>
   <div id="app" class="container mt-5">
-    <h1>IDShop</h1>
-    <navbar :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus" @delete="deleteItem"></navbar>
-    <price-slider :sliderStatus="sliderStatus" @update:maximum="maximum"></price-slider>
-    <product-list :products="products" :maximum="maximum" @add="addItem"></product-list>
+    <checkout :cart="cart" :cartTotal="cartTotal" @add="addItem" @delete="deleteItem"></checkout>
+    <products
+      :cart="cart"
+      :cartQty="cartQty"
+      :cartTotal="cartTotal"
+      :maximum="maximum"
+      :products="products"
+      :sliderStatus="sliderStatus"
+      @toggle="toggleSliderStatus"
+      @add="addItem"
+      @delete="deleteItem"
+    ></products>
   </div>
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-import PriceSlider from "./components/PriceSlider.vue";
-import ProductList from "./components/ProductList.vue";
+import Checkout from "./components/Checkout.vue";
+import Products from "./components/Products.vue";
 
 export default {
   name: "app",
-  components: {
-    Navbar,
-    PriceSlider,
-    ProductList,
-  },
   data: function () {
     return {
       maximum: 50,
@@ -26,6 +28,10 @@ export default {
       cart: [],
       sliderStatus: false,
     };
+  },
+  components: {
+    Checkout,
+    Products,
   },
   mounted: function () {
     fetch("https://hplussport.com/api/products/order/price?limit=10")

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-light bg-light fixed-top">
     <div class="navbar-text ml-auto d-flex">
-      <button class="btn btn-sm btn-outline-success" @click="$emit('toggle')">
+      <button class="btn btn-sm btn-outline-success" @click="$emit('toggle-slide')">
         <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
       </button>
       <div class="dropdown ml-2" v-if="cart.length > 0">
@@ -18,7 +18,7 @@
               </span>
               {{ item.product.name }}
               <price :value="item.product.price * item.qty"></price>
-              <a href="#" class="badge bg-danger text-white text-decoration-none" @click.stop="$emit('delete', index)">-</a>
+              <a href="#" class="badge bg-danger text-white text-decoration-none" @click.stop="$emit('delete-item', index)">-</a>
               <!-- <b>{{ item.product.price * item.qty | currencyFormat(item.product.price) }}</b> -->
             </div>
           </div>
